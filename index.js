@@ -18,7 +18,8 @@ const products = [
   price: 20
   },
 ];
-/*  */
+
+
 const categoriesList = document.querySelector('.categories ul');
 const productsList = document.querySelector('.products ul');
 const productInfo = document.querySelector('#product-detail');
@@ -28,18 +29,18 @@ const purchaseStatus = document.querySelector('#purchase-status');
 
 function displayProducts(category) {
   productsList.innerHTML = '';
-  products.filter(p => p.category === category).forEach(p => {
+  products.filter(item => item.category === category).forEach(item => {
     const li = document.createElement('li');
     const product = document.createElement('product');
-    product.textContent = p.name;
+    product.textContent = item.name;
     li.appendChild(product);
     productsList.appendChild(li);
       
     product.addEventListener('click', () => {
       productInfo.innerHTML = 
-      `<p>${p.name}</p>
-      <p>${p.description}</p>
-      <p>Price: $${p.price}</p>`;
+      `<p>${item.name}</p>
+      <p>${item.description}</p>
+      <p>Price: $${item.price}</p>`;
       buyButton.style.display = "block";
     });
   });
